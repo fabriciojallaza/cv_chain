@@ -7,3 +7,10 @@ Permite a los profesionales:
 - Crear o actualizar su CV con experiencias, estudios y habilidades.  
 - Marcar su CV como completo, preparándolo para futuras funciones como la emisión de NFTs.  
 - Consultar la información registrada de cualquier usuario.
+
+## companies.clar
+Este contrato permite **registrar empresas e instituciones verificadas** en CV Chain.  
+Las empresas pueden:  
+- Registrarse en la plataforma.  
+- Acreditar experiencias laborales de usuarios.  
+- Emitir NFTs de trabajador validadas para sus empleados.
