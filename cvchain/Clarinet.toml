@@ -1,0 +1,13 @@
+[project]
+name = "cvchain"
+description = "CV Chain on Stacks"
+authors = ["Juan Manuel Elias Soria"]
+telemetry = false
+cache_dir = "./.cache"
+
+[contracts.cvchain]
+path = "contracts/cvchain.clar"
+
+[repl.analysis]
+passes = ["check_checker"]
+check_checker = { trusted_sender = false, trusted_caller = false, callee_filter = false }
