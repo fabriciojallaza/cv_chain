@@ -15,3 +15,11 @@ Las empresas pueden:
 - Acreditar experiencias laborales de usuarios.  
 - Emitir NFTs de trabajador validadas para sus empleados.
 
+## nfts.clar
+Este contrato gestiona **los NFTs soulbound** utilizados en CV Chain.
+Permite:
+* Emitir NFTs únicos para los **CVs on-chain** de los usuarios.
+* Emitir NFTs de **acreditación laboral** otorgados por empresas verificadas.
+* Asociar metadata con información del usuario, empresa, fechas y descripciones.
+* Asegurar que los NFTs sean **no transferibles (soulbound)**, garantizando autenticidad y permanencia.
+
