@@ -14,3 +14,4 @@ Las empresas pueden:
 - Registrarse en la plataforma.  
 - Acreditar experiencias laborales de usuarios.  
 - Emitir NFTs de trabajador validadas para sus empleados.
+
