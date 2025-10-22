@@ -40,4 +40,16 @@ Eventos importantes:
 - `bounty-completed`
 - `bounty-paid`
 
+## memberships.clar
+Este contrato gestiona las **membresías premium WorkPro** en CV Chain.  
+Permite a los profesionales y empresas suscribirse para obtener beneficios adicionales en la plataforma.  
+
+Funciones principales:
+- **subscribe-premium(plan, duration)** → suscribirse a un plan premium por un período determinado.  
+- **check-premium-status(user)** → consultar si un usuario tiene la membresía activa.  
+- **cancel-membership()** → cancelar la suscripción premium.  
+
+Eventos importantes:
+- `membership-subscribed`
+- `membership-cancelled`
 
