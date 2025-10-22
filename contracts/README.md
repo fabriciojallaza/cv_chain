@@ -23,3 +23,21 @@ Permite:
 * Asociar metadata con información del usuario, empresa, fechas y descripciones.
 * Asegurar que los NFTs sean **no transferibles (soulbound)**, garantizando autenticidad y permanencia.
 
+## bounties.clar
+Este contrato maneja el **marketplace de bounties o trabajos Web3** en la plataforma CV Chain.  
+Permite a las empresas crear ofertas laborales con pagos en sBTC (simulados aquí con Clarity).  
+
+Funciones principales:
+- **create-bounty(description, reward)** → crea un nuevo bounty con descripción y monto de recompensa.  
+- **apply-bounty(bounty-id)** → permite a un usuario postularse al bounty.  
+- **complete-bounty(bounty-id)** → la empresa marca el bounty como completado.  
+- **release-payment(bounty-id)** → libera el pago del bounty (escrow simulado).  
+- **get-bounty(bounty-id)** → consulta los datos de un bounty.  
+
+Eventos importantes:
+- `bounty-created`
+- `bounty-applied`
+- `bounty-completed`
+- `bounty-paid`
+
+
