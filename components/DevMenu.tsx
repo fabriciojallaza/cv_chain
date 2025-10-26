@@ -85,8 +85,8 @@ export function DevMenu({ currentView, onNavigate }: DevMenuProps) {
               <Code className="w-4 h-4 text-white" />
             </div>
             <div>
-              <h3 className="text-sm">Dev Menu</h3>
-              <p className="text-xs text-muted-foreground">Navegación rápida</p>
+              <h3 className="text-sm text-white font-semibold">Dev Menu</h3>
+              <p className="text-xs text-gray-400">Navegación rápida</p>
             </div>
           </div>
           <div className="flex items-center gap-1">
@@ -142,17 +142,17 @@ export function DevMenu({ currentView, onNavigate }: DevMenuProps) {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
-                            <span className="text-sm">{view.name}</span>
+                            <span className="text-sm text-white font-medium">{view.name}</span>
                             {isActive && (
-                              <Badge 
-                                variant="outline" 
-                                className="text-xs bg-[#0E76FD]/20 border-[#0E76FD]"
+                              <Badge
+                                variant="outline"
+                                className="text-xs bg-[#0E76FD]/20 border-[#0E76FD] text-white"
                               >
                                 Activa
                               </Badge>
                             )}
                           </div>
-                          <p className="text-xs text-muted-foreground truncate">
+                          <p className="text-xs text-gray-400 truncate">
                             {view.description}
                           </p>
                         </div>
@@ -164,10 +164,10 @@ export function DevMenu({ currentView, onNavigate }: DevMenuProps) {
 
               {/* Footer */}
               <div className="p-3 border-t border-border bg-muted/30">
-                <div className="text-xs text-muted-foreground text-center">
-                  <p className="mb-1">👨‍💻 Modo Desarrollador</p>
+                <div className="text-xs text-gray-400 text-center">
+                  <p className="mb-1 text-white">👨‍💻 Modo Desarrollador</p>
                   <p className="text-[10px]">
-                    Vista actual: <code className="text-[#0E76FD]">{currentView}</code>
+                    Vista actual: <code className="text-[#0E76FD] font-semibold">{currentView}</code>
                   </p>
                 </div>
               </div>

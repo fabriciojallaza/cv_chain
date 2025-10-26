@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Building2, Award, Users, TrendingUp, CheckCircle, Plus, Send, FileText, Upload, Globe, Mail, MapPin, Sparkles, ExternalLink, Filter, Moon, Sun } from "lucide-react";
+import { Building2, Award, Users, TrendingUp, CheckCircle, Plus, Send, Upload, Globe, Mail, Sparkles, ExternalLink, Filter, Moon, Sun, Wallet } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
@@ -119,13 +119,13 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
   if (!kybVerified) {
     return (
       <div className="min-h-screen w-full bg-background flex items-center justify-center p-6">
-        <Card className="max-w-2xl w-full p-8 bg-card border-border">
+        <Card className="max-w-2xl w-full p-8 bg-[#1a1a24]/95 backdrop-blur-sm border-white/20">
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#0E76FD] to-[#6C63FF] rounded-2xl mb-4">
               <Building2 className="w-8 h-8 text-white" />
             </div>
-            <h2 className="text-3xl mb-2">Company Verification (KYB)</h2>
-            <p className="text-muted-foreground">
+            <h2 className="text-3xl mb-2 text-white font-semibold">Company Verification (KYB)</h2>
+            <p className="text-gray-400">
               Verify your company to issue NFT credentials and publish bounties
             </p>
           </div>
@@ -144,7 +144,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
             <div>
               <Label>Website *</Label>
               <div className="relative">
-                <Globe className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
+                <Globe className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
                 <Input 
                   placeholder="https://yourcompany.com"
                   className="bg-input-background pl-10"
@@ -170,7 +170,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
                   <SelectTrigger className="bg-input-background">
                     <SelectValue placeholder="Select country" />
                   </SelectTrigger>
-                  <SelectContent className="bg-card border-border">
+                  <SelectContent className="bg-[#1a1a24]/95 backdrop-blur-xl border-white/20">
                     <SelectItem value="us">United States</SelectItem>
                     <SelectItem value="mx">Mexico</SelectItem>
                     <SelectItem value="es">Spain</SelectItem>
@@ -184,7 +184,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
             <div>
               <Label>Business Email *</Label>
               <div className="relative">
-                <Mail className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
+                <Mail className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
                 <Input 
                   type="email"
                   placeholder="contact@yourcompany.com"
@@ -198,9 +198,9 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
             <div>
               <Label>Company Logo</Label>
               <div className="border-2 border-dashed border-border rounded-lg p-8 text-center hover:border-[#0E76FD]/50 transition-colors cursor-pointer">
-                <Upload className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
-                <p className="text-sm text-muted-foreground">Click to upload or drag and drop</p>
-                <p className="text-xs text-muted-foreground mt-1">PNG, JPG up to 2MB</p>
+                <Upload className="w-8 h-8 mx-auto mb-2 text-gray-400" />
+                <p className="text-sm text-gray-400">Click to upload or drag and drop</p>
+                <p className="text-xs text-gray-400 mt-1">PNG, JPG up to 2MB</p>
               </div>
             </div>
 
@@ -210,7 +210,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
                 checked={kybFormData.agreedToTerms}
                 onCheckedChange={(checked) => setKybFormData({...kybFormData, agreedToTerms: checked as boolean})}
               />
-              <label htmlFor="terms" className="text-sm text-muted-foreground cursor-pointer">
+              <label htmlFor="terms" className="text-sm text-gray-400 cursor-pointer">
                 I verify that this information is true and accurate. I understand that providing false information may result in permanent ban from the platform and legal consequences.
               </label>
             </div>
@@ -218,9 +218,9 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
             <div className="bg-[#0E76FD]/10 border border-[#0E76FD]/20 rounded-lg p-4">
               <div className="flex gap-3">
                 <CheckCircle className="w-5 h-5 text-[#0E76FD] flex-shrink-0 mt-0.5" />
-                <div className="text-sm">
+                <div className="text-sm text-white">
                   <p className="mb-2">After verification, you will receive:</p>
-                  <ul className="space-y-1 text-muted-foreground">
+                  <ul className="space-y-1 text-gray-400">
                     <li>• "Verified Company" NFT badge on blockchain</li>
                     <li>• Ability to issue soulbound NFT credentials</li>
                     <li>• Access to publish bounties and job offers</li>
@@ -252,9 +252,9 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
 
   // Main Dashboard (Post-Verification)
   return (
-    <div className="min-h-screen w-full bg-background">
+    <div className="min-h-screen w-full" style={{ background: "linear-gradient(135deg, #0a0a0f 0%, #1a1a24 50%, #0a0a0f 100%)" }}>
       {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-white/10 bg-[#1a1a24]/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="bg-gradient-to-br from-[#0E76FD] to-[#6C63FF] p-2 rounded-xl">
@@ -282,12 +282,12 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
               <div className="bg-gradient-to-br from-[#0E76FD] to-[#6C63FF] p-2 rounded-lg">
                 <Building2 className="w-5 h-5 text-white" />
               </div>
-              <div className="text-sm">
+              <div className="text-sm text-white">
                 <div className="flex items-center gap-2">
                   <span>{companyName}</span>
                   <CheckCircle className="w-4 h-4 text-green-500" />
                 </div>
-                <div className="text-muted-foreground">Verified Company</div>
+                <div className="text-gray-400">Verified Company</div>
               </div>
             </div>
           </div>
@@ -296,7 +296,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
 
       <div className="container mx-auto px-6 py-8 max-w-7xl">
         {/* Company Info Banner */}
-        <Card className="p-6 mb-8 bg-gradient-to-br from-card to-[#0E76FD]/5 border-[#0E76FD]/20">
+        <Card className="p-6 mb-8 bg-[#1a1a24]/90 backdrop-blur-sm border-[#0E76FD]/40">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 bg-gradient-to-br from-[#0E76FD] to-[#6C63FF] rounded-xl flex items-center justify-center">
@@ -304,13 +304,13 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
               </div>
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <h3>{companyName}</h3>
+                  <h3 className="text-white font-semibold">{companyName}</h3>
                   <Badge className="bg-green-500/20 text-green-500 border-0">
                     <CheckCircle className="w-3 h-3 mr-1" />
                     Verified
                   </Badge>
                 </div>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <div className="flex items-center gap-4 text-sm text-gray-400">
                   <span className="flex items-center gap-1">
                     <Globe className="w-4 h-4" />
                     {companyWebsite}
@@ -331,38 +331,38 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
 
         {/* Company Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card className="p-6 bg-gradient-to-br from-card to-[#0E76FD]/5 border-[#0E76FD]/20">
+          <Card className="p-6 bg-[#1a1a24]/80 backdrop-blur-sm border-[#0E76FD]/40">
             <div className="flex items-center gap-4">
               <div className="bg-[#0E76FD]/20 p-3 rounded-xl">
                 <Users className="w-6 h-6 text-[#0E76FD]" />
               </div>
               <div>
-                <div className="text-3xl">{stats.employeesAccredited}</div>
-                <div className="text-sm text-muted-foreground">Verified Employees</div>
+                <div className="text-3xl text-white font-bold">{stats.employeesAccredited}</div>
+                <div className="text-sm text-gray-400">Verified Employees</div>
               </div>
             </div>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-br from-card to-[#6C63FF]/5 border-[#6C63FF]/20">
+          <Card className="p-6 bg-[#1a1a24]/80 backdrop-blur-sm border-[#6C63FF]/40">
             <div className="flex items-center gap-4">
               <div className="bg-[#6C63FF]/20 p-3 rounded-xl">
                 <Award className="w-6 h-6 text-[#6C63FF]" />
               </div>
               <div>
-                <div className="text-3xl">{stats.bountiesCompleted}</div>
-                <div className="text-sm text-muted-foreground">Bounties Completed</div>
+                <div className="text-3xl text-white font-bold">{stats.bountiesCompleted}</div>
+                <div className="text-sm text-gray-400">Bounties Completed</div>
               </div>
             </div>
           </Card>
 
-          <Card className="p-6 bg-gradient-to-br from-card to-[#8B5CF6]/5 border-[#8B5CF6]/20">
+          <Card className="p-6 bg-[#1a1a24]/80 backdrop-blur-sm border-[#8B5CF6]/40">
             <div className="flex items-center gap-4">
               <div className="bg-[#8B5CF6]/20 p-3 rounded-xl">
                 <TrendingUp className="w-6 h-6 text-[#8B5CF6]" />
               </div>
               <div>
-                <div className="text-3xl">{stats.averageReputation}</div>
-                <div className="text-sm text-muted-foreground">Reputation Score</div>
+                <div className="text-3xl text-white font-bold">{stats.averageReputation}</div>
+                <div className="text-sm text-gray-400">Reputation Score</div>
               </div>
             </div>
           </Card>
@@ -377,7 +377,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
                 Issue Accreditation NFT
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-card border-border max-w-2xl">
+            <DialogContent className="bg-[#1a1a24]/95 backdrop-blur-xl border-white/20 max-w-2xl">
               <DialogHeader>
                 <DialogTitle>Issue Soulbound NFT Accreditation</DialogTitle>
                 <DialogDescription>Create a permanent on-chain credential for an employee's work experience.</DialogDescription>
@@ -415,7 +415,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
                 <div className="bg-muted/30 p-4 rounded-lg border border-border">
                   <div className="flex gap-2">
                     <CheckCircle className="w-5 h-5 text-[#0E76FD] flex-shrink-0" />
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-gray-400">
                       This NFT will be soulbound (non-transferable) and permanently recorded on the Stacks blockchain. The employee's Work3Score will be automatically updated.
                     </div>
                   </div>
@@ -435,7 +435,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
                 Create Bounty
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-card border-border max-w-2xl">
+            <DialogContent className="bg-[#1a1a24]/95 backdrop-blur-xl border-white/20 max-w-2xl">
               <DialogHeader>
                 <DialogTitle>Publish Web3 Bounty</DialogTitle>
                 <DialogDescription>Create a new bounty or job offer for the Web3 talent marketplace.</DialogDescription>
@@ -456,7 +456,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
                       <SelectTrigger className="bg-input-background">
                         <SelectValue placeholder="Select currency" />
                       </SelectTrigger>
-                      <SelectContent className="bg-card border-border">
+                      <SelectContent className="bg-[#1a1a24]/95 backdrop-blur-xl border-white/20">
                         <SelectItem value="stx">STX</SelectItem>
                         <SelectItem value="sbtc">sBTC</SelectItem>
                         <SelectItem value="usda">USDA</SelectItem>
@@ -505,11 +505,11 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
 
         {/* Pending Applications */}
         {applications.length > 0 && (
-          <Card className="p-6 mb-8 bg-card border-border">
+          <Card className="p-6 mb-8 bg-[#1a1a24]/90 backdrop-blur-sm border-white/20">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h3 className="text-xl mb-1">Pending Applications</h3>
-                <p className="text-sm text-muted-foreground">{applications.length} new applications to review</p>
+                <h3 className="text-xl text-white font-semibold mb-1">Pending Applications</h3>
+                <p className="text-sm text-gray-400">{applications.length} new applications to review</p>
               </div>
               <Badge className="bg-[#6C63FF]/20 text-[#6C63FF] border-0">
                 {applications.length} New
@@ -518,7 +518,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
 
             <div className="space-y-4">
               {applications.map((app) => (
-                <Card key={app.id} className="p-4 bg-muted/20 border-border">
+                <Card key={app.id} className="p-4 bg-[#1a1a24]/70 backdrop-blur-sm border-white/20">
                   <div className="flex items-center justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
@@ -526,12 +526,12 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
                           <AvatarFallback>{app.applicantName.slice(0, 2)}</AvatarFallback>
                         </Avatar>
                         <div>
-                          <h4 className="text-sm">{app.applicantName}</h4>
-                          <p className="text-xs text-muted-foreground">Applied for: {app.bountyTitle}</p>
+                          <h4 className="text-sm text-white">{app.applicantName}</h4>
+                          <p className="text-xs text-gray-400">Applied for: {app.bountyTitle}</p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                        <span>Work3Score: <span className="text-foreground">{app.work3Score}/100</span></span>
+                      <div className="flex items-center gap-4 text-xs text-gray-400">
+                        <span>Work3Score: <span className="text-white">{app.work3Score}/100</span></span>
                         <span>Applied: {app.appliedDate}</span>
                         <code className="bg-muted px-2 py-0.5 rounded">{app.applicantWallet.slice(0, 16)}...</code>
                       </div>
@@ -554,13 +554,13 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
         {/* Accredited Employees Table */}
         <div>
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl">Accredited Employees</h3>
+            <h3 className="text-2xl text-white font-semibold">Accredited Employees</h3>
             <div className="flex gap-2">
               <Select defaultValue="all">
                 <SelectTrigger className="w-32 bg-input-background">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent className="bg-card border-border">
+                <SelectContent className="bg-[#1a1a24]/95 backdrop-blur-xl border-white/20">
                   <SelectItem value="all">All Status</SelectItem>
                   <SelectItem value="active">Active</SelectItem>
                   <SelectItem value="expired">Expired</SelectItem>
@@ -569,7 +569,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
             </div>
           </div>
 
-          <Card className="border-border overflow-hidden">
+          <Card className="bg-[#1a1a24]/80 backdrop-blur-sm border-white/20 overflow-hidden">
             <Table>
               <TableHeader>
                 <TableRow className="hover:bg-transparent border-border">
@@ -591,8 +591,8 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
                           <AvatarFallback>{employee.name.slice(0, 2)}</AvatarFallback>
                         </Avatar>
                         <div>
-                          <p className="text-sm">{employee.name}</p>
-                          <code className="text-xs text-muted-foreground">{employee.wallet.slice(0, 12)}...</code>
+                          <p className="text-sm text-white">{employee.name}</p>
+                          <code className="text-xs text-gray-400">{employee.wallet.slice(0, 12)}...</code>
                         </div>
                       </div>
                     </TableCell>
@@ -601,11 +601,11 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
                         {employee.role}
                       </Badge>
                     </TableCell>
-                    <TableCell className="text-sm text-muted-foreground">
+                    <TableCell className="text-sm text-gray-400">
                       {employee.period}
                     </TableCell>
                     <TableCell>
-                      <code className="text-xs bg-muted px-2 py-1 rounded">{employee.nftIssued}</code>
+                      <code className="text-xs text-white bg-muted px-2 py-1 rounded">{employee.nftIssued}</code>
                     </TableCell>
                     <TableCell>
                       {employee.status === "Active" ? (
@@ -614,7 +614,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
                           Active
                         </Badge>
                       ) : (
-                        <Badge variant="outline" className="text-muted-foreground">
+                        <Badge variant="outline" className="text-gray-400">
                           Expired
                         </Badge>
                       )}
@@ -633,7 +633,7 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
         </div>
 
         {/* Footer */}
-        <div className="mt-12 flex items-center justify-center gap-6 text-sm text-muted-foreground">
+        <div className="mt-12 flex items-center justify-center gap-6 text-sm text-gray-400">
           <button className="hover:text-[#0E76FD] transition-colors">
             View On-Chain Reputation
           </button>
@@ -650,6 +650,3 @@ export function CompanyView({ onSwitchView, userData, isDarkMode, toggleTheme }:
     </div>
   );
 }
-
-// Missing import (add this at the top with other imports)
-import { Wallet } from "lucide-react";

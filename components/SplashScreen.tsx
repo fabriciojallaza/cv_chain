@@ -122,41 +122,41 @@ export function SplashScreen({ onSelectEmployee, onSelectCompany }: SplashScreen
         >
           <p className="text-lg text-gray-400 mb-6">¿Cómo quieres comenzar?</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
-            <Card 
+            <Card
               onClick={onSelectEmployee}
-              className="p-6 bg-card/80 backdrop-blur-sm border-border hover:border-[#0E76FD] transition-all cursor-pointer group"
+              className="p-6 bg-[#1a1a24]/90 backdrop-blur-sm border-white/20 hover:border-[#0E76FD] transition-all cursor-pointer group"
             >
               <div className="flex flex-col items-center text-center gap-4">
                 <div className="bg-gradient-to-br from-[#0E76FD] to-[#6C63FF] p-4 rounded-2xl group-hover:scale-110 transition-transform">
                   <User className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl mb-2">Soy Empleado</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <h3 className="text-xl mb-2 text-white font-semibold">Soy Empleado</h3>
+                  <p className="text-sm text-gray-400">
                     Construye tu reputación profesional con NFTs verificables
                   </p>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-[#0E76FD] to-[#6C63FF] hover:opacity-90">
+                <Button className="w-full bg-gradient-to-r from-[#0E76FD] to-[#6C63FF] hover:opacity-90 text-white">
                   Continuar como Empleado
                 </Button>
               </div>
             </Card>
 
-            <Card 
+            <Card
               onClick={onSelectCompany}
-              className="p-6 bg-card/80 backdrop-blur-sm border-border hover:border-[#6C63FF] transition-all cursor-pointer group"
+              className="p-6 bg-[#1a1a24]/90 backdrop-blur-sm border-white/20 hover:border-[#6C63FF] transition-all cursor-pointer group"
             >
               <div className="flex flex-col items-center text-center gap-4">
                 <div className="bg-gradient-to-br from-[#6C63FF] to-[#8B5CF6] p-4 rounded-2xl group-hover:scale-110 transition-transform">
                   <Building2 className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl mb-2">Soy Empresa</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <h3 className="text-xl mb-2 text-white font-semibold">Soy Empresa</h3>
+                  <p className="text-sm text-gray-400">
                     Valida a tu equipo y emite acreditaciones on-chain
                   </p>
                 </div>
-                <Button className="w-full bg-gradient-to-r from-[#6C63FF] to-[#8B5CF6] hover:opacity-90">
+                <Button className="w-full bg-gradient-to-r from-[#6C63FF] to-[#8B5CF6] hover:opacity-90 text-white">
                   Continuar como Empresa
                 </Button>
               </div>

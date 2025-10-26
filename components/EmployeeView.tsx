@@ -137,15 +137,15 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
   };
 
   return (
-    <div className="min-h-screen w-full bg-background">
+    <div className="min-h-screen w-full" style={{ background: "linear-gradient(135deg, #0a0a0f 0%, #1a1a24 50%, #0a0a0f 100%)" }}>
       {/* Header */}
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+      <header className="border-b border-white/10 bg-[#1a1a24]/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="bg-gradient-to-br from-[#0E76FD] to-[#6C63FF] p-2 rounded-xl">
               <Award className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl bg-gradient-to-r from-[#0E76FD] to-[#6C63FF] bg-clip-text text-transparent">
+            <span className="text-2xl text-white font-semibold bg-gradient-to-r from-[#0E76FD] to-[#6C63FF] bg-clip-text text-transparent">
               CV Chain
             </span>
           </div>
@@ -178,22 +178,22 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
                   </Avatar>
                 </button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-card border-border">
+              <DropdownMenuContent align="end" className="w-56 bg-[#1a1a24]/95 backdrop-blur-xl border-white/20">
                 <div className="px-2 py-2">
-                  <p className="text-sm">{userName}</p>
-                  <p className="text-xs text-muted-foreground">{userWallet.slice(0, 12)}...</p>
+                  <p className="text-sm text-white">{userName}</p>
+                  <p className="text-xs text-gray-400">{userWallet.slice(0, 12)}...</p>
                 </div>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>
+                <DropdownMenuItem className="text-white">
                   <User className="w-4 h-4 mr-2" />
                   Profile
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem className="text-white">
                   <Settings className="w-4 h-4 mr-2" />
                   Settings
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={onSwitchView}>
+                <DropdownMenuItem className="text-white" onClick={onSwitchView}>
                   Vista Empresa
                 </DropdownMenuItem>
                 <DropdownMenuItem className="text-destructive">
@@ -208,7 +208,7 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
 
       <div className="container mx-auto px-6 py-8 max-w-7xl">
         {/* Profile Section */}
-        <Card className="p-8 mb-8 bg-gradient-to-br from-card to-muted/20 border-border">
+        <Card className="p-8 mb-8 bg-[#1a1a24]/90 backdrop-blur-sm border-white/20">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="flex-shrink-0">
               <Avatar className="w-32 h-32 border-4 border-[#0E76FD] shadow-lg shadow-[#0E76FD]/20">
@@ -220,17 +220,17 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
             <div className="flex-1">
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h2 className="text-3xl mb-2">{userName}</h2>
-                  <p className="text-muted-foreground mb-2">{userProfession}</p>
-                  <p className="text-sm text-muted-foreground mb-3">{userBio}</p>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <h2 className="text-3xl text-white font-bold mb-2">{userName}</h2>
+                  <p className="text-gray-400 mb-2">{userProfession}</p>
+                  <p className="text-sm text-gray-400 mb-3">{userBio}</p>
+                  <div className="flex items-center gap-2 text-sm text-gray-400">
                     <Wallet className="w-4 h-4" />
-                    <code className="bg-muted px-2 py-1 rounded">{userWallet}</code>
+                    <code className="bg-muted px-2 py-1 rounded text-white">{userWallet}</code>
                   </div>
                 </div>
                 <Button 
                   variant="outline" 
-                  className="border-[#6C63FF]/30"
+                  className="border-[#6C63FF]/30 text-white"
                   onClick={() => setShareDialogOpen(true)}
                 >
                   <Share2 className="w-4 h-4 mr-2" />
@@ -242,9 +242,9 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     <TrendingUp className="w-5 h-5 text-[#0E76FD]" />
-                    <span>Work3Score</span>
+                    <span className="text-white">Work3Score</span>
                   </div>
-                  <span className="text-2xl bg-gradient-to-r from-[#0E76FD] to-[#6C63FF] bg-clip-text text-transparent">
+                  <span className="text-2xl text-white font-semibold bg-gradient-to-r from-[#0E76FD] to-[#6C63FF] bg-clip-text text-transparent">
                     {work3Score}/100
                   </span>
                 </div>
@@ -252,13 +252,13 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
               </div>
 
               <div>
-                <h4 className="mb-3">Habilidades</h4>
+                <h4 className="mb-3 text-white font-semibold">Habilidades</h4>
                 <div className="flex flex-wrap gap-2">
                   {userSkills.map((skill: string, index: number) => (
-                    <Badge 
-                      key={index} 
+                    <Badge
+                      key={index}
                       variant="secondary"
-                      className="bg-gradient-to-r from-[#0E76FD]/10 to-[#6C63FF]/10 border border-[#0E76FD]/20 hover:border-[#0E76FD]/40"
+                      className="bg-gradient-to-r from-[#0E76FD]/30 to-[#6C63FF]/30 border border-[#0E76FD]/50 hover:border-[#0E76FD]/70 text-white"
                     >
                       {skill}
                     </Badge>
@@ -293,7 +293,7 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
           {/* Profile Tab - Work Experience */}
           <TabsContent value="profile" className="space-y-6">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl">Work Experience</h3>
+              <h3 className="text-2xl text-white font-semibold">Work Experience</h3>
               <Dialog>
                 <DialogTrigger asChild>
                   <Button className="bg-[#6C63FF] hover:bg-[#6C63FF]/90">
@@ -301,7 +301,7 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
                     Add Experience
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="bg-card border-border">
+                <DialogContent className="bg-[#1a1a24]/95 backdrop-blur-xl border-white/20">
                   <DialogHeader>
                     <DialogTitle>Add New Experience</DialogTitle>
                     <DialogDescription>Request validation for a new work experience from the company.</DialogDescription>
@@ -345,7 +345,7 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
               {nftExperiences.map((exp) => (
                 <Card 
                   key={exp.id} 
-                  className="p-6 bg-gradient-to-br from-card to-muted/10 border-border hover:border-[#0E76FD]/50 transition-all"
+                  className="p-6 bg-[#1a1a24]/80 backdrop-blur-sm border-white/20 hover:border-[#0E76FD]/50 transition-all"
                 >
                   <div className="flex items-start gap-4">
                     <div className="bg-gradient-to-br from-[#0E76FD]/20 to-[#6C63FF]/20 p-3 rounded-lg">
@@ -355,8 +355,8 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
                     <div className="flex-1">
                       <div className="flex items-start justify-between mb-3">
                         <div>
-                          <h4 className="mb-1">{exp.role}</h4>
-                          <p className="text-sm text-muted-foreground">{exp.company}</p>
+                          <h4 className="mb-1 text-white font-semibold">{exp.role}</h4>
+                          <p className="text-sm text-gray-400">{exp.company}</p>
                         </div>
                         {exp.verified && (
                           <div className="flex items-center gap-1 text-green-500 text-sm">
@@ -366,19 +366,19 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
                         )}
                       </div>
                       
-                      <div className="text-sm text-muted-foreground mb-4">
+                      <div className="text-sm text-gray-400 mb-4">
                         {exp.startDate} - {exp.endDate}
                       </div>
 
-                      <p className="text-sm mb-4 leading-relaxed">
+                      <p className="text-sm text-gray-300 mb-4 leading-relaxed">
                         {exp.description}
                       </p>
 
                       <div className="mb-4">
-                        <div className="text-sm text-muted-foreground mb-2">Technologies:</div>
+                        <div className="text-sm text-gray-400 mb-2">Technologies:</div>
                         <div className="flex flex-wrap gap-2">
                           {exp.technologies.map((tech, index) => (
-                            <Badge key={index} variant="outline" className="text-xs">
+                            <Badge key={index} variant="outline" className="text-xs text-white">
                               {tech}
                             </Badge>
                           ))}
@@ -386,7 +386,7 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
                       </div>
 
                       <div className="pt-4 border-t border-border flex items-center justify-between">
-                        <code className="text-xs text-muted-foreground">NFT ID: {exp.nftId}</code>
+                        <code className="text-xs text-gray-400">NFT ID: {exp.nftId}</code>
                         <Button 
                           variant="ghost" 
                           size="sm"
@@ -406,7 +406,7 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
           {/* Education Tab */}
           <TabsContent value="education" className="space-y-6">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl">Education & Certifications</h3>
+              <h3 className="text-2xl text-white font-semibold">Education & Certifications</h3>
               <Dialog>
                 <DialogTrigger asChild>
                   <Button className="bg-[#6C63FF] hover:bg-[#6C63FF]/90">
@@ -414,7 +414,7 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
                     Add Education
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="bg-card border-border">
+                <DialogContent className="bg-[#1a1a24]/95 backdrop-blur-xl border-white/20">
                   <DialogHeader>
                     <DialogTitle>Add Education</DialogTitle>
                     <DialogDescription>Add your education or certifications and request verification.</DialogDescription>
@@ -454,7 +454,7 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
               {education.map((edu) => (
                 <Card 
                   key={edu.id} 
-                  className="p-6 bg-gradient-to-br from-card to-muted/10 border-border hover:border-[#6C63FF]/50 transition-all"
+                  className="p-6 bg-[#1a1a24]/80 backdrop-blur-sm border-white/20 hover:border-[#6C63FF]/50 transition-all"
                 >
                   <div className="flex items-start gap-4">
                     <div className="bg-gradient-to-br from-[#6C63FF]/20 to-[#8B5CF6]/20 p-3 rounded-lg">
@@ -464,8 +464,8 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
                     <div className="flex-1">
                       <div className="flex items-start justify-between mb-3">
                         <div>
-                          <h4 className="mb-1">{edu.degree}</h4>
-                          <p className="text-sm text-muted-foreground">{edu.institution}</p>
+                          <h4 className="mb-1 text-white font-semibold">{edu.degree}</h4>
+                          <p className="text-sm text-gray-400">{edu.institution}</p>
                         </div>
                         {edu.verified && (
                           <div className="flex items-center gap-1 text-green-500 text-sm">
@@ -475,16 +475,16 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
                         )}
                       </div>
                       
-                      <div className="text-sm text-muted-foreground mb-4">
+                      <div className="text-sm text-gray-400 mb-4">
                         {edu.startDate} - {edu.endDate}
                       </div>
 
-                      <p className="text-sm mb-4 leading-relaxed">
+                      <p className="text-sm text-gray-300 mb-4 leading-relaxed">
                         {edu.description}
                       </p>
 
                       <div className="pt-4 border-t border-border flex items-center justify-between">
-                        <code className="text-xs text-muted-foreground">NFT ID: {edu.nftId}</code>
+                        <code className="text-xs text-gray-400">NFT ID: {edu.nftId}</code>
                         <Button 
                           variant="ghost" 
                           size="sm"
@@ -504,17 +504,17 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
           {/* Web3 Opportunities Tab */}
           <TabsContent value="opportunities" className="space-y-6">
             <div className="mb-6">
-              <h3 className="text-2xl mb-2">Web3 Opportunities</h3>
-              <p className="text-muted-foreground">Browse bounties and job offers matched to your Work3Score</p>
+              <h3 className="text-2xl text-white font-semibold mb-2">Web3 Opportunities</h3>
+              <p className="text-gray-400">Browse bounties and job offers matched to your Work3Score</p>
             </div>
 
             <div className="space-y-6">
               {bounties.map((bounty) => (
-                <Card key={bounty.id} className="p-6 bg-card border-border hover:border-[#6C63FF]/50 transition-all">
+                <Card key={bounty.id} className="p-6 bg-[#1a1a24]/80 backdrop-blur-sm border-white/20 hover:border-[#6C63FF]/50 transition-all">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <h4>{bounty.title}</h4>
+                        <h4 className="text-white font-semibold">{bounty.title}</h4>
                         {bounty.aiRecommended && (
                           <Badge className="bg-gradient-to-r from-[#6C63FF] to-[#8B5CF6] border-0">
                             <Sparkles className="w-3 h-3 mr-1" />
@@ -522,20 +522,20 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
                           </Badge>
                         )}
                       </div>
-                      <p className="text-sm text-muted-foreground">{bounty.company}</p>
+                      <p className="text-sm text-gray-400">{bounty.company}</p>
                     </div>
                     <div className="bg-gradient-to-r from-[#0E76FD] to-[#6C63FF] px-4 py-2 rounded-lg text-sm">
                       {bounty.reward}
                     </div>
                   </div>
 
-                  <p className="text-sm mb-4">{bounty.description}</p>
+                  <p className="text-sm text-white mb-4">{bounty.description}</p>
 
                   <div className="mb-4">
-                    <div className="text-sm text-muted-foreground mb-2">Requirements:</div>
+                    <div className="text-sm text-gray-400 mb-2">Requirements:</div>
                     <div className="flex flex-wrap gap-2">
                       {bounty.requirements.map((req, index) => (
-                        <Badge key={index} variant="outline" className="text-xs">
+                        <Badge key={index} variant="outline" className="text-xs text-white">
                           {req}
                         </Badge>
                       ))}
@@ -543,8 +543,8 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
                   </div>
 
                   <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <div className="text-sm text-muted-foreground">
-                      Minimum Work3Score: <span className="text-foreground">{bounty.minWork3Score}</span>
+                    <div className="text-sm text-gray-400">
+                      Minimum Work3Score: <span className="text-white">{bounty.minWork3Score}</span>
                     </div>
                     <Button className="bg-[#6C63FF] hover:bg-[#6C63FF]/90">
                       Apply using Work3Score
@@ -557,42 +557,42 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
 
           {/* Settings Tab */}
           <TabsContent value="settings" className="space-y-6">
-            <h3 className="text-2xl mb-6">Settings</h3>
+            <h3 className="text-2xl text-white font-semibold mb-6">Settings</h3>
             
-            <Card className="p-6 bg-card border-border">
-              <h4 className="mb-4">Profile Visibility</h4>
+            <Card className="p-6 bg-[#1a1a24]/80 backdrop-blur-sm border-white/20">
+              <h4 className="mb-4 text-white font-semibold">Profile Visibility</h4>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm">Public Profile</p>
-                    <p className="text-xs text-muted-foreground">Allow others to view your on-chain CV</p>
+                    <p className="text-sm text-white">Public Profile</p>
+                    <p className="text-xs text-gray-400">Allow others to view your on-chain CV</p>
                   </div>
                   <Button variant="outline" size="sm">Enabled</Button>
                 </div>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm">Show Wallet Address</p>
-                    <p className="text-xs text-muted-foreground">Display your wallet on public profile</p>
+                    <p className="text-sm text-white">Show Wallet Address</p>
+                    <p className="text-xs text-gray-400">Display your wallet on public profile</p>
                   </div>
                   <Button variant="outline" size="sm">Enabled</Button>
                 </div>
               </div>
             </Card>
 
-            <Card className="p-6 bg-card border-border">
-              <h4 className="mb-4">Notifications</h4>
+            <Card className="p-6 bg-[#1a1a24]/80 backdrop-blur-sm border-white/20">
+              <h4 className="mb-4 text-white font-semibold">Notifications</h4>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm">New Bounty Matches</p>
-                    <p className="text-xs text-muted-foreground">Get notified when bounties match your skills</p>
+                    <p className="text-sm text-white">New Bounty Matches</p>
+                    <p className="text-xs text-gray-400">Get notified when bounties match your skills</p>
                   </div>
                   <Button variant="outline" size="sm">Enabled</Button>
                 </div>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm">NFT Verifications</p>
-                    <p className="text-xs text-muted-foreground">Alerts when companies verify your credentials</p>
+                    <p className="text-sm text-white">NFT Verifications</p>
+                    <p className="text-xs text-gray-400">Alerts when companies verify your credentials</p>
                   </div>
                   <Button variant="outline" size="sm">Enabled</Button>
                 </div>
@@ -604,7 +604,7 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
 
       {/* Share Profile Dialog */}
       <Dialog open={shareDialogOpen} onOpenChange={setShareDialogOpen}>
-        <DialogContent className="bg-card border-border max-w-2xl">
+        <DialogContent className="bg-[#1a1a24]/95 backdrop-blur-xl border-white/20 max-w-2xl">
           <DialogHeader>
             <DialogTitle>Share Your On-Chain Profile</DialogTitle>
             <DialogDescription>Share your verified credentials and Work3Score with potential employers.</DialogDescription>
@@ -617,7 +617,7 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
                 <Input 
                   value={`https://${publicProfileUrl}`}
                   readOnly
-                  className="bg-input-background font-mono text-sm"
+                  className="bg-input-background font-mono text-sm text-white"
                 />
                 <Button 
                   variant="outline" 
@@ -630,40 +630,40 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
             </div>
 
             <div>
-              <h4 className="mb-4">Public Profile Preview</h4>
-              <Card className="p-6 bg-muted/20 border-border">
+              <h4 className="mb-4 text-white font-semibold">Public Profile Preview</h4>
+              <Card className="p-6 bg-[#1a1a24]/70 backdrop-blur-sm border-white/20">
                 <div className="flex items-start gap-4 mb-4">
                   <Avatar className="w-16 h-16 border-2 border-[#0E76FD]">
                     <AvatarImage src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" />
                     <AvatarFallback>AH</AvatarFallback>
                   </Avatar>
                   <div className="flex-1">
-                    <h4 className="mb-1">{userName}</h4>
-                    <p className="text-sm text-muted-foreground mb-2">{userProfession}</p>
-                    <code className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">
+                    <h4 className="mb-1 text-white font-semibold">{userName}</h4>
+                    <p className="text-sm text-gray-400 mb-2">{userProfession}</p>
+                    <code className="text-xs text-gray-400 bg-muted px-2 py-1 rounded">
                       {userWallet}
                     </code>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm text-muted-foreground mb-1">Work3Score</div>
-                    <div className="text-2xl bg-gradient-to-r from-[#0E76FD] to-[#6C63FF] bg-clip-text text-transparent">
+                    <div className="text-sm text-gray-400 mb-1">Work3Score</div>
+                    <div className="text-2xl text-white font-semibold bg-gradient-to-r from-[#0E76FD] to-[#6C63FF] bg-clip-text text-transparent">
                       {work3Score}/100
                     </div>
                   </div>
                 </div>
 
                 <div className="mb-4">
-                  <div className="text-sm text-muted-foreground mb-2">Skills</div>
+                  <div className="text-sm text-gray-400 mb-2">Skills</div>
                   <div className="flex flex-wrap gap-2">
                     {userSkills.slice(0, 4).map((skill: string, index: number) => (
-                      <Badge key={index} variant="secondary" className="text-xs">
+                      <Badge key={index} variant="secondary" className="text-xs bg-gradient-to-r from-[#0E76FD]/30 to-[#6C63FF]/30 border border-[#0E76FD]/50 text-white">
                         {skill}
                       </Badge>
                     ))}
                   </div>
                 </div>
 
-                <div className="text-sm text-muted-foreground mb-2">
+                <div className="text-sm text-gray-400 mb-2">
                   {nftExperiences.length} Verified Experiences · {education.length} Education Credentials
                 </div>
 
@@ -675,7 +675,7 @@ export function EmployeeView({ onSwitchView, userData, isDarkMode, toggleTheme }
             </div>
 
             <div className="bg-muted/30 p-4 rounded-lg">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-gray-400">
                 💡 Share this link on social media or with potential employers. They'll see your verified on-chain credentials and Work3Score.
               </p>
             </div>

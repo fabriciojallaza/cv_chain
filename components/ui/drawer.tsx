@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Drawer as DrawerPrimitive } from "vaul@1.1.2";
+import { Drawer as DrawerPrimitive } from "vaul";
 
 import { cn } from "./utils";
 
@@ -99,7 +99,7 @@ function DrawerTitle({
   return (
     <DrawerPrimitive.Title
       data-slot="drawer-title"
-      className={cn("text-foreground font-semibold", className)}
+      className={cn("text-white font-semibold", className)}
       {...props}
     />
   );
@@ -112,7 +112,7 @@ function DrawerDescription({
   return (
     <DrawerPrimitive.Description
       data-slot="drawer-description"
-      className={cn("text-muted-foreground text-sm", className)}
+      className={cn("text-gray-400 text-sm", className)}
       {...props}
     />
   );
