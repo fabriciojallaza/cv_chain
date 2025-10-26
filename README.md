@@ -2,6 +2,8 @@
 
 A decentralized professional verification platform built on Stacks blockchain. CV Chain allows professionals to create verifiable on-chain CVs and enables companies to issue soulbound NFTs as immutable proof of employment and achievements.
 
+🌐 **Live Demo:** [https://cvchain.vercel.app/](https://cvchain.vercel.app/)
+
 ## Overview
 
 Traditional CVs rely on trust and manual verification. CV Chain solves this by putting professional credentials directly on the blockchain, where they can be verified instantly and cannot be forged. Companies issue NFTs to employees as proof of their work experience, creating a permanent, tamper-proof professional record.
@@ -57,20 +59,115 @@ cv_chain/
 └── App.tsx             # Main application entry
 ```
 
-## Smart Contracts
+## Smart Contracts Architecture
 
-The blockchain layer consists of three interconnected Clarity smart contracts:
+The blockchain layer consists of three interconnected Clarity smart contracts that work together to create a complete credential verification system:
 
-### `users.clar`
-Manages user registration and CV data storage. Each user is identified by their Stacks wallet address (principal). Stores personal information, work experiences, educational background, and skills. The contract enforces a maximum of 10 entries per list to maintain reasonable gas costs.
+### Contract Flow Overview
 
-### `companies.clar`
-Handles company registration and verification. Companies can register on the platform and verify user work experiences by issuing NFT-based accreditations. Currently, companies are automatically marked as verified upon registration, with plans to implement a more robust verification process.
+```
+1. User Registration (users.clar)
+   ↓
+2. Company Registration & Verification (companies.clar)
+   ↓
+3. NFT Credential Issuance (nfts.clar)
+   ↓
+4. Verifiable Professional Profile
+```
 
-### `nfts.clar`
-Core contract for issuing soulbound NFTs. Supports two types: CV NFTs (representing a complete professional profile) and Acreditacion NFTs (company-issued employment verification). All NFTs are permanently bound to the owner's wallet with the `soulbound` flag set to true, making them non-transferable.
+### `users.clar` - Professional Profile Management
 
-Each NFT contains structured metadata including name, company, dates, description, and up to 10 supporting links. The contract maintains a counter for unique NFT IDs.
+**Purpose:** Creates and manages user profiles with comprehensive professional information.
+
+**Key Functions:**
+- `register-user`: Creates a new user profile linked to a Stacks wallet address (principal)
+- `create-cv`: Builds a complete CV with work experiences, education, and skills
+- `get-user`: Retrieves user profile data for verification
+
+**Data Storage:**
+- Personal information (name, email)
+- Work experiences (up to 10 entries)
+- Educational background (up to 10 entries)
+- Professional skills (up to 10 entries)
+- CV completion status
+
+**Flow:** Users register with their wallet address → Create CV with professional details → CV marked as complete when all fields are filled
+
+### `companies.clar` - Company Verification System
+
+**Purpose:** Manages company registration and enables them to issue verified credentials.
+
+**Key Functions:**
+- `register-company`: Registers a company on the platform with business details
+- `get-company`: Retrieves company verification status and information
+- `verify-user-experience`: Allows verified companies to accredit employee work experiences
+
+**Data Storage:**
+- Company name and registration details
+- Verification status (currently auto-verified)
+- Contact information and metadata
+
+**Flow:** Company registers on platform → Automatically receives "verified" status → Can now issue NFT credentials to employees
+
+### `nfts.clar` - Soulbound Credential NFTs
+
+**Purpose:** Core contract that mints non-transferable NFT credentials as permanent proof of achievements.
+
+**NFT Types:**
+1. **CV NFTs**: Represent a complete professional profile
+2. **Acreditacion NFTs**: Company-issued employment verification certificates
+
+**Key Functions:**
+- `mint-nft`: Creates a new soulbound NFT with comprehensive metadata
+- `get-nft`: Retrieves NFT details and verification data
+- `soulbound-check`: Confirms NFT is permanently bound to owner
+
+**NFT Metadata Structure:**
+- Name (professional title or credential name)
+- Company/Institution name
+- Start and end dates
+- Detailed description of role/achievement
+- Supporting links (up to 10 URLs for portfolios, projects, etc.)
+- Soulbound flag (always `true`)
+
+**Flow:** Verified company initiates NFT issuance → NFT minted with detailed metadata → NFT permanently bound to employee's wallet → Employee's Work3Score automatically updated
+
+### Complete Credential Issuance Flow
+
+```
+┌─────────────────┐
+│  1. Employee    │
+│  Registers      │──────┐
+│  (users.clar)   │      │
+└─────────────────┘      │
+                         ▼
+┌─────────────────┐    ┌─────────────────────┐
+│  2. Company     │    │  Employee creates   │
+│  Registers &    │───▶│  CV profile         │
+│  Gets Verified  │    │  (users.clar)       │
+│  (companies.clar)│    └─────────────────────┘
+└─────────────────┘              │
+        │                        │
+        │                        ▼
+        │              ┌─────────────────────┐
+        └─────────────▶│  3. Company issues  │
+                       │  Soulbound NFT      │
+                       │  (nfts.clar)        │
+                       └─────────────────────┘
+                                 │
+                                 ▼
+                       ┌─────────────────────┐
+                       │  4. NFT Credential  │
+                       │  Permanently on     │
+                       │  Blockchain         │
+                       └─────────────────────┘
+```
+
+**Security Features:**
+- All NFTs are soulbound (non-transferable)
+- Wallet addresses used as immutable primary keys
+- String length limits prevent blockchain bloat
+- List size constraints maintain reasonable gas costs
 
 ## Getting Started
 
@@ -102,54 +199,6 @@ npm run dev
 
 The frontend runs with mock data to demonstrate functionality without blockchain connection. The DevMenu allows quick switching between employee and company views for testing.
 
-### Testing Smart Contracts
-
-The contracts directory contains the blockchain implementation and test suite.
-
-```bash
-# Navigate to contracts folder
-cd contracts
-
-# Install contract testing dependencies
-npm install
-
-# Run all contract tests
-npm test
-
-# Run tests with coverage and gas cost analysis
-npm run test:report
-
-# Watch mode for development
-npm run test:watch
-```
-
-**Test Coverage:**
-- `users_test.ts` - User registration, CV creation, and data retrieval
-- `companies_test.ts` - Company registration and experience verification
-- `nfts_test.ts` - NFT minting, metadata handling, and soulbound validation
-
-All tests run in a simulated Clarity environment using Clarinet, ensuring contract behavior is correct before deployment.
-
-## Development Notes
-
-**Frontend Development:**
-- Mock data is used throughout the app (see `App.tsx`)
-- Dark mode toggle is available in both employee and company views
-- Path alias `@/` resolves to project root for clean imports
-- DevMenu component provides navigation during development
-
-**Smart Contract Constraints:**
-- Wallet addresses (principals) are used as primary keys
-- String length limits: names (50 chars), emails (50 chars), descriptions (100 chars)
-- List size limits: max 10 items for experiences, studies, skills, and links
-- NFT IDs auto-increment starting from 1
-
-**Integration Points:**
-- Frontend NFT IDs should match on-chain NFT IDs from `nfts.clar`
-- User wallet addresses link frontend profiles to blockchain data
-- Company verification status determines UI trust indicators
-- Work3 Score calculation will integrate with blockchain credentials
-
 ## Build for Production
 
 ```bash
@@ -173,11 +222,3 @@ npm run preview
 ## Language Support
 
 The application UI is in Spanish, with plans to add multi-language support. Smart contract comments are also in Spanish.
-
-## License
-
-MIT
-
-## Contact
-
-For questions or collaboration opportunities, please open an issue in this repository.
