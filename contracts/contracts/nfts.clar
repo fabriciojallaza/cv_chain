@@ -1,6 +1,8 @@
 ;; nfts.clar
 ;; Contrato que maneja NFTs soulbound de CV y acreditaciones de empresas
 
+;; Contract deployed in https://explorer.hiro.so/txid/6158d8470eda01cdaeff94279d20d4743ae14e34eb575166c57cde3c7b3aff68?chain=testnet
+
 (define-map nfts
   ((nft-id uint))
   ((owner principal)

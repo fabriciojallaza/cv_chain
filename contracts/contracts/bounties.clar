@@ -1,6 +1,8 @@
 ;; contracts/bounties.clar
 ;; Smart contract para manejar los bounties (trabajos) con pagos en sBTC
 
+;; Contract deployed in https://explorer.hiro.so/txid/dd6734c8d564f505b9364b8733d07b3d6c6ae5b2212694ecfa68822524e12ff5?chain=testnet
+
 (define-data-var bounty-counter uint u0)
 
 (define-map bounties

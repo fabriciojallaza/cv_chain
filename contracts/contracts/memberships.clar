@@ -1,6 +1,8 @@
 ;; contracts/memberships.clar
 ;; Smart contract para gestionar membresías premium (WorkPro) en CV Chain
 
+;; Contract deployed in https://explorer.hiro.so/txid/5d0c367a73b4b42f2a9026951169bdf956feb7e2988cea51186cc245d44ca131?chain=testnet
+
 (define-map memberships
   principal
   {

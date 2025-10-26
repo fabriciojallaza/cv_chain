@@ -1,12 +1,17 @@
 [project]
-name = "cvchain"
+name = "users"
 description = "CV Chain on Stacks"
 authors = ["Juan Manuel Elias Soria"]
 telemetry = false
 cache_dir = "./.cache"
 
 [contracts.cvchain]
-path = "contracts/cvchain.clar"
+path = "contracts/users.clar"
+
+[network.testnet]
+url = "https://stacks-node-api.testnet.stacks.co"
+chain_id = 2147483648
+
 
 [repl.analysis]
 passes = ["check_checker"]

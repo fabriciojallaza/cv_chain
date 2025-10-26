@@ -1,5 +1,7 @@
 ;; Smart contract de Empresas / Instituciones para CV Chain
 
+;; Contract deployed in https://explorer.hiro.so/txid/130d866076c84f1db9e1b5f6df1c5281a8949f970b3c46b52af226b42abf82fd?chain=testnet
+
 ;; Mapa de empresas registradas
 (define-map companies
   ((wallet principal)) ;; wallet de la empresa

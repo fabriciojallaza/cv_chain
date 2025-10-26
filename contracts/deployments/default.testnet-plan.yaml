@@ -1,0 +1,18 @@
+---
+id: 0
+name: Testnet deployment
+network: testnet
+stacks-node: "https://api.testnet.hiro.so"
+bitcoin-node: "http://blockstack:blockstacksystem@bitcoind.testnet.stacks.co:18332"
+plan:
+  batches:
+    - id: 0
+      transactions:
+        - contract-publish:
+            contract-name: cvchain
+            expected-sender: ST1FSFVBJ5GTF24MP99P9RPQ34Q42VWES78PCNTQT
+            cost: 15500
+            path: contracts/users.clar
+            anchor-block-only: true
+            clarity-version: 1
+      epoch: "2.05"
